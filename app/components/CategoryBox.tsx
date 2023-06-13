@@ -1,18 +1,15 @@
-'use client';
-
 import qs from 'query-string';
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
-import { IconType } from "react-icons";
 
 interface CategoryBoxProps {
-  icon: IconType,
+  imageUrl: string;
   label: string;
   selected?: boolean;
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
-  icon: Icon,
+  imageUrl,
   label,
   selected,
 }) => {
@@ -61,7 +58,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         ${selected ? 'text-neutral-800' : 'text-neutral-500'}
       `}
     >
-      <Icon size={26} />
+      <img src={imageUrl} alt={label} className="w-6 h-6" />
       <div className="font-medium text-sm">
         {label}
       </div>

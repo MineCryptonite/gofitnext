@@ -1,22 +1,16 @@
-import { collection, getDocs, query, where, orderBy }from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+import db from '@/config/firebaseConfig';
 
-  import db from "@/config/firebaseConfig";
-    
-  export async function getWorkoutCategories() {
-    try {
-      const classesDocs = await getDocs(
-        query(
-          collection(db, "workoutCategories"),
-        )
-      );
-      const classes = classesDocs.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      return classes;
-    } catch (error) {
-      console.error("Error retrieving classes:", error);
-      return [];
-    }
+export async function getWorkoutCategories() {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'workoutCategories'));
+    const workoutCategories = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    return workoutCategories;
+  } catch (error) {
+    console.error('Error retrieving workout categories:', error);
+    return [];
   }
-  
+}
