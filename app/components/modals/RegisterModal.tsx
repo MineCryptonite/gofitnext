@@ -64,12 +64,12 @@ const RegisterModal= () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome to Airbnb"
-        subtitle="Create an account!"
+        title="환영합니다."
+        subtitle="계정을 만들어주세요."
       />
       <Input
         id="email"
-        label="Email"
+        label="이메일"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -77,7 +77,7 @@ const RegisterModal= () => {
       />
       <Input
         id="name"
-        label="Name"
+        label="이름"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -85,7 +85,7 @@ const RegisterModal= () => {
       />
       <Input
         id="password"
-        label="Password"
+        label="비밀번호"
         type="password"
         disabled={isLoading}
         register={register}
@@ -100,13 +100,13 @@ const RegisterModal= () => {
       <hr />
       <Button 
         outline 
-        label="Continue with Google"
+        label="구글로 등록"
         icon={FcGoogle}
         onClick={() => signIn('google')} 
       />
       <Button 
         outline 
-        label="Continue with Github"
+        label="카카오로 등록"
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
@@ -118,7 +118,7 @@ const RegisterModal= () => {
           font-light
         "
       >
-        <p>Already have an account?
+        <p>이미 계정이 있나요?
           <span 
             onClick={onToggle} 
             className="
@@ -126,7 +126,7 @@ const RegisterModal= () => {
               cursor-pointer 
               hover:underline
             "
-            > Log in</span>
+            > 로그인</span>
         </p>
       </div>
     </div>
@@ -136,8 +136,8 @@ const RegisterModal= () => {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Register"
-      actionLabel="Continue"
+      title="회원가입"
+      actionLabel="회원가입"
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

@@ -58,7 +58,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             cursor-pointer
           "
         >
-          Airbnb your home
+          나의 시설
         </div>
         <div 
         onClick={toggleOpen}
@@ -100,42 +100,34 @@ const UserMenu: React.FC<UserMenuProps> = ({
           "
         >
           <div className="flex flex-col cursor-pointer">
-            {currentUser ? (
+            {true ? (
               <>
                 <MenuItem 
-                  label="My trips" 
-                  onClick={() => router.push('/trips')}
-                />
-                <MenuItem 
-                  label="My favorites" 
+                  label="찜" 
                   onClick={() => router.push('/favorites')}
                 />
                 <MenuItem 
-                  label="My reservations" 
+                  label="예약" 
                   onClick={() => router.push('/reservations')}
                 />
                 <MenuItem 
-                  label="My properties" 
-                  onClick={() => router.push('/properties')}
-                />
-                <MenuItem 
-                  label="Airbnb your home" 
+                  label="나의 시설" 
                   onClick={rentModal.onOpen}
                 />
                 <hr />
                 <MenuItem 
-                  label="Logout" 
+                  label="로그아웃" 
                   onClick={() => signOut()}
                 />
               </>
             ) : (
               <>
                 <MenuItem 
-                  label="Login" 
+                  label="로그인" 
                   onClick={loginModal.onOpen}
                 />
                 <MenuItem 
-                  label="Sign up" 
+                  label="회원가입" 
                   onClick={registerModal.onOpen}
                 />
               </>

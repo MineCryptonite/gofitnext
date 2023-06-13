@@ -104,7 +104,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           ">
             <HeartButton 
               listingId={data.id} 
-              currentUser={currentUser}
+              currentUser={null}
             />
           </div>
         </div>

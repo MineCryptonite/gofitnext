@@ -6,6 +6,7 @@ import getListings, {
   IListingsParams
 } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import {getClasses} from "@/app/backend/classes/classes.service"
 import ClientOnly from "./components/ClientOnly";
 
 interface HomeProps {
@@ -13,10 +14,10 @@ interface HomeProps {
 };
 
 const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams);
+  //const listings = await getListings(searchParams);
+  const classes = await getClasses();
   const currentUser = await getCurrentUser();
-
-  if (listings.length === 0) {
+  if (classes.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -40,13 +41,18 @@ const Home = async ({ searchParams }: HomeProps) => {
             gap-8
           "
         >
-          {listings.map((listing: any) => (
+          {classes.map((listing: any) => (
             <ListingCard
-              currentUser={currentUser}
+              currentUser={null}
               key={listing.id}
               data={listing}
             />
-          ))}
+          )) }
+          <ListingCard
+              currentUser={null}
+              key={null}
+              data={listing}
+            />
         </div>
       </Container>
     </ClientOnly>

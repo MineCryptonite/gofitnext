@@ -70,12 +70,12 @@ const LoginModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome back"
-        subtitle="Login to your account!"
+        title="다시 오셨네요?"
+        subtitle="로그인 해주세요."
       />
       <Input
         id="email"
-        label="Email"
+        label="이메일"
         disabled={isLoading}
         register={register}  
         errors={errors}
@@ -83,7 +83,7 @@ const LoginModal = () => {
       />
       <Input
         id="password"
-        label="Password"
+        label="비밀번호"
         type="password"
         disabled={isLoading}
         register={register}
@@ -98,19 +98,19 @@ const LoginModal = () => {
       <hr />
       <Button 
         outline 
-        label="Continue with Google"
+        label="구글로 로그인"
         icon={FcGoogle}
         onClick={() => signIn('google')}
       />
       <Button 
         outline 
-        label="Continue with Github"
+        label="카카오로 로그인"
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>처음 이용하시나요?
           <span 
             onClick={onToggle} 
             className="
@@ -118,7 +118,7 @@ const LoginModal = () => {
               cursor-pointer 
               hover:underline
             "
-            > Create an account</span>
+            > 회원가입</span>
         </p>
       </div>
     </div>
@@ -128,8 +128,8 @@ const LoginModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
-      title="Login"
-      actionLabel="Continue"
+      title="로그인"
+      actionLabel="로그인"
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
